@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Book a Consultation | 45° Workshop</title>
+<meta name="description" content="Tell us about your build and we'll get back to you. Design consultations are $59 and credited toward a Custom Elite order.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="45° Workshop">
+<meta property="og:title" content="Book a Consultation | 45° Workshop">
+<meta property="og:description" content="Tell us about your build and we'll get back to you. Design consultations are $59 and credited toward a Custom Elite order.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="_ds/modernist-45039685-fc7b-40d8-b584-7de252e8cf6b/styles.css">
+<script src="_ds/modernist-45039685-fc7b-40d8-b584-7de252e8cf6b/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--color-accent:#8c1524;--color-accent-100:#f6e3e5;--color-accent-200:#e9bcc1;--color-accent-300:#d58e96;--color-accent-600:#7a1220;--color-accent-700:#690f1b;--color-accent-800:#560c16;--color-accent-900:#420912;}
+  body{margin:0;} a{color:var(--color-text);} a:hover{color:var(--color-accent);}
+  .f-input{width:100%;box-sizing:border-box;padding:13px 14px;font-family:var(--font-body);font-size:14px;border:2px solid var(--color-divider);background:var(--color-surface);color:var(--color-text);}
+  .f-input:focus{outline:2px solid var(--color-accent);outline-offset:1px;}
+</style>
+</helmet>
+<div style="background:var(--color-bg);min-height:100vh;font-family:var(--font-body);color:var(--color-text);">
+
+<nav class="nav" style="max-width:1240px;margin:0 auto;flex-wrap:wrap;">
+  <a class="nav-brand" href="./Home.dc.html" style="text-decoration:none;white-space:nowrap;">45° WORKSHOP</a>
+  <a href="./StartHere.dc.html" style="white-space:nowrap;">Start</a>
+  <a href="./Builds.dc.html" style="white-space:nowrap;">Builds</a>
+  <a href="./Portfolio.dc.html" style="white-space:nowrap;">Our Work</a>
+  <a href="./Services.dc.html" style="white-space:nowrap;">Services</a>
+  <a href="./About.dc.html" style="white-space:nowrap;">About</a>
+  <a class="btn btn-primary" href="./Consultation.dc.html" style="justify-content:flex-start;white-space:nowrap;color:var(--color-bg);">Get started</a>
+</nav>
+
+<div style="max-width:1240px;margin:0 auto;padding:64px 32px 32px;">
+  <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px;">Get Started</div>
+  <h1 style="font-family:var(--font-heading);font-weight:700;font-size:52px;letter-spacing:-0.03em;max-width:18ch;margin:0 0 20px;">Tell us what you're <em>building.</em></h1>
+  <p style="font-size:16px;color:var(--color-neutral-700);max-width:60ch;line-height:1.6;">One form for all four builds. Tell us which path you're on and we'll follow up with next steps, a quote, or a time to talk.</p>
+</div>
+
+<div style="max-width:1240px;margin:0 auto;padding:0 32px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--color-divider);">
+  <div style="background:var(--color-surface);padding:26px 24px;">
+    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px;">Standard &amp; Semi-Custom</div>
+    <div style="font-family:var(--font-heading);font-size:22px;margin-bottom:10px;">No fee</div>
+    <p style="color:var(--color-neutral-700);font-size:14px;line-height:1.6;margin:0;">Submit this form with your selections. We confirm the details and price before anything is built.</p>
+  </div>
+  <div style="background:var(--color-surface);padding:26px 24px;">
+    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px;">Custom Elite Design Consultation</div>
+    <div style="font-family:var(--font-heading);font-size:22px;margin-bottom:10px;">$59</div>
+    <p style="color:var(--color-neutral-700);font-size:14px;line-height:1.6;margin:0;">A 45-minute session with our designer to work through your build. Credited toward your order if you move forward.</p>
+  </div>
+  <div style="background:var(--color-surface);padding:26px 24px;">
+    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px;">Permit Process Consultation</div>
+    <div style="font-family:var(--font-heading);font-size:22px;margin-bottom:10px;">$150</div>
+    <p style="color:var(--color-neutral-700);font-size:14px;line-height:1.6;margin:0;">Permitting process, expected requirements, and general guidance. <a href="./Services.dc.html">See what's covered</a>.</p>
+  </div>
+</div>
+
+<div style="max-width:1240px;margin:0 auto;padding:40px 32px 88px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;">
+  <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+    <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;max-width:520px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Name</label><input class="f-input" type="text" placeholder="Jane Rivera" required=""></div>
+        <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Phone</label><input class="f-input" type="tel" placeholder=""></div>
+      </div>
+      <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Email</label><input class="f-input" type="email" placeholder="jane@yourbusiness.com" required=""></div>
+      <div>
+        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Which are you after?</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" checked="" style="margin-right:6px;">Standard</label>
+          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Semi-Custom</label>
+          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Custom Elite</label>
+          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Event Bar rental</label>
+          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Permit consultation</label>
+          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Not sure yet</label>
+        </div>
+      </div>
+      <div>
+        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Cart size, if you know it</label>
+        <div style="display:flex;gap:8px;">
+          <label style="flex:1;padding:11px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="cart-size" checked="" style="margin-right:6px;">4'</label>
+          <label style="flex:1;padding:11px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="cart-size" style="margin-right:6px;">6'</label>
+          <label style="flex:1;padding:11px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="cart-size" style="margin-right:6px;">Custom</label>
+        </div>
+      </div>
+      <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Tell us about your space and business</label><textarea class="f-input" rows="4" placeholder="Storefront, farmers market, event rentals..."></textarea></div>
+      <button type="submit" class="btn btn-primary btn-block" style="color:var(--color-bg);">Send It Over</button>
+    </form>
+  </sc-if>
+  <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+    <div style="background:var(--color-surface);padding:36px;max-width:520px;">
+      <h4 style="font-family:var(--font-heading);font-size:22px;margin:0 0 10px;">Thanks. We'll be in touch.</h4>
+      <p style="color:var(--color-neutral-700);font-size:14px;margin:0;">We'll reach out shortly with next steps and confirm any fee before you pay it.</p>
+    </div>
+  </sc-if>
+
+  <div>
+    <h5 style="font-family:var(--font-heading);font-size:18px;margin:0 0 16px;">Contact</h5>
+    <p style="color:var(--color-neutral-700);font-size:14px;line-height:2;margin:0;">the45workshop@gmail.com<br>Serving San Jose, Morgan Hill, Gilroy &amp; Hollister</p>
+  </div>
+</div>
+
+<footer>
+  <div style="max-width:1240px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;border-top:2px solid var(--color-divider);">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:700;font-size:17px;margin-bottom:12px;">45° WORKSHOP</div>
+      <p style="color:var(--color-neutral-700);max-width:340px;font-size:14px;line-height:1.6;margin:0;">Standard, semi-custom, and fully custom coffee carts and bars, with permit-process guidance and mobile bar rentals for events.</p>
+    </div>
+    <div>
+      <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Contact</div>
+      <p style="color:var(--color-neutral-700);font-size:14px;line-height:1.8;margin:0 0 12px;"><a href="mailto:the45workshop@gmail.com">the45workshop@gmail.com</a></p>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;"><a href="https://www.instagram.com/the45workshop/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><span>45° Workshop</span></a><a href="https://www.instagram.com/vivracafe/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;text-decoration:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><span>Vivra Café</span></a></div>
+    </div>
+    <div>
+      <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Service area</div>
+      <p style="color:var(--color-neutral-700);font-size:14px;line-height:1.8;margin:0;">San Jose<br>Morgan Hill<br>Gilroy<br>Hollister</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:20px 32px;border-top:2px solid var(--color-divider);font-size:13px;color:var(--color-neutral-700);">© 2026 The Forty-Five Workshop</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { submitted: false };
+  renderVals() {
+    return {
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
