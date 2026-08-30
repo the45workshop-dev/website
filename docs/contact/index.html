@@ -63,35 +63,87 @@
   </div>
 </div>
 
-<div style="max-width:1240px;margin:0 auto;padding:40px clamp(20px,5vw,32px) 88px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;">
+<div style="max-width:1240px;margin:0 auto;padding:40px clamp(20px,5vw,32px) 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,56px);">
   <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-    <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;max-width:520px;">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;">
-        <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Name</label><input class="f-input" type="text" placeholder="Jane Rivera" required=""></div>
-        <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Phone</label><input class="f-input" type="tel" placeholder=""></div>
-      </div>
-      <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Email</label><input class="f-input" type="email" placeholder="jane@yourbusiness.com" required=""></div>
+    <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:18px;max-width:520px;">
       <div>
-        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Which are you after?</label>
+        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:8px;">Which are you after? <span style="color:var(--color-accent-700);">Required</span></label>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;">
-          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" checked="" style="margin-right:6px;">Standard</label>
-          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Semi-Custom</label>
-          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Custom Elite</label>
-          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Event Bar rental</label>
-          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Permit consultation</label>
-          <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Not sure yet</label>
+          <sc-for list="{{ pathOptions }}" as="opt" hint-placeholder-count="6">
+            <button type="button" onClick="{{ opt.onSelect }}" style="{{ opt.style }}">{{ opt.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ errPath }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:12px;color:var(--color-accent-700);margin-top:8px;">{{ errPath }}</div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{ showSize }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:8px;">Cart size, if you know it</label>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;">
+            <sc-for list="{{ sizeOptions }}" as="opt" hint-placeholder-count="3">
+              <button type="button" onClick="{{ opt.onSelect }}" style="{{ opt.style }}">{{ opt.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showEvent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+          <div>
+            <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Event date <span style="color:var(--color-accent-700);">Required</span></label>
+            <input class="f-input" type="date" value="{{ eventDate }}" onChange="{{ setEventDate }}">
+            <sc-if value="{{ errEventDate }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:12px;color:var(--color-accent-700);margin-top:6px;">{{ errEventDate }}</div>
+            </sc-if>
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Guest count</label>
+            <input class="f-input" type="text" placeholder="About 80" value="{{ guests }}" onChange="{{ setGuests }}">
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div>
+          <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Name <span style="color:var(--color-accent-700);">Required</span></label>
+          <input class="f-input" type="text" placeholder="Jane Rivera" value="{{ name }}" onChange="{{ setName }}">
+          <sc-if value="{{ errName }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;color:var(--color-accent-700);margin-top:6px;">{{ errName }}</div>
+          </sc-if>
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Phone</label>
+          <input class="f-input" type="tel" placeholder="(408) 555-0123" value="{{ phone }}" onChange="{{ setPhone }}">
+          <sc-if value="{{ errPhone }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;color:var(--color-accent-700);margin-top:6px;">{{ errPhone }}</div>
+          </sc-if>
         </div>
       </div>
+
       <div>
-        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Cart size, if you know it</label>
-        <div style="display:flex;gap:8px;">
-          <label style="flex:1;padding:11px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="cart-size" checked="" style="margin-right:6px;">4'</label>
-          <label style="flex:1;padding:11px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="cart-size" style="margin-right:6px;">6'</label>
-          <label style="flex:1;padding:11px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="cart-size" style="margin-right:6px;">Custom</label>
-        </div>
+        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Email <span style="color:var(--color-accent-700);">Required</span></label>
+        <input class="f-input" type="email" placeholder="jane@yourbusiness.com" value="{{ email }}" onChange="{{ setEmail }}">
+        <sc-if value="{{ errEmail }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:12px;color:var(--color-accent-700);margin-top:6px;">{{ errEmail }}</div>
+        </sc-if>
       </div>
-      <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Tell us about your space and business</label><textarea class="f-input" rows="4" placeholder="Storefront, farmers market, event rentals..."></textarea></div>
-      <button type="submit" class="btn btn-primary btn-block" style="color:var(--color-bg);">Send It Over</button>
+
+      <div>
+        <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">{{ notesLabel }}</label>
+        <textarea class="f-input" rows="4" placeholder="{{ notesHint }}" value="{{ notes }}" onChange="{{ setNotes }}"></textarea>
+      </div>
+
+      <sc-if value="{{ hasErrors }}" hint-placeholder-val="{{ false }}">
+        <div style="border:2px solid var(--color-accent);padding:12px 14px;font-size:13px;color:var(--color-accent-700);">{{ errorCount }}</div>
+      </sc-if>
+
+      <sc-if value="{{ sendFailed }}" hint-placeholder-val="{{ false }}">
+        <div style="border:2px solid var(--color-accent);padding:12px 14px;font-size:13px;color:var(--color-accent-700);">That didn't go through. Try again, or email us at <a href="mailto:the45workshop@gmail.com">the45workshop@gmail.com</a>.</div>
+      </sc-if>
+
+      <button type="submit" class="btn btn-primary btn-block" disabled="{{ sending }}" style="color:var(--color-bg);">{{ sendLabel }}</button>
     </form>
   </sc-if>
   <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
@@ -129,13 +181,98 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+// Formspree endpoint. Each field arrives as its own column, and Formspree
+// emails a copy of every submission.
+const ENDPOINT = 'https://formspree.io/f/mnpqnrav';
+
+const PATHS = ['Standard', 'Semi-Custom', 'Custom Elite', 'Event Bar rental', 'Permit consultation', 'Not sure yet'];
+const SIZES = ["4'", "6'", 'Custom'];
+
 class Component extends DCLogic {
-  state = { submitted: false };
-  renderVals() {
+  state = {
+    submitted: false, tried: false, sending: false, sendFailed: false,
+    name: '', email: '', phone: '', path: '', size: '',
+    eventDate: '', guests: '', notes: ''
+  };
+
+  errors() {
+    const s = this.state, e = {};
+    if (!s.name.trim()) e.name = 'Tell us your name.';
+    if (!s.email.trim()) e.email = 'We need an email to reply.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s.email.trim())) e.email = 'That email looks incomplete.';
+    if (s.phone.trim() && s.phone.replace(/\D/g, '').length < 10) e.phone = 'Enter a 10-digit number.';
+    if (!s.path) e.path = 'Pick which one you are after.';
+    if (s.path === 'Event Bar rental' && !s.eventDate) e.eventDate = 'When is the event?';
+    return e;
+  }
+
+  set(k) { return (ev) => this.setState({ [k]: ev.target.value }); }
+
+  optStyle(on) {
     return {
-      submitted: this.state.submitted,
-      notSubmitted: !this.state.submitted,
-      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+      padding: '11px 12px', border: '2px solid ' + (on ? 'var(--color-accent)' : 'var(--color-divider)'),
+      background: on ? 'var(--color-accent)' : 'var(--color-surface)',
+      color: on ? '#fff' : 'var(--color-text)',
+      fontSize: '13px', fontFamily: 'var(--font-body)', textAlign: 'left',
+      cursor: 'pointer', borderRadius: 0, width: '100%', display: 'block'
+    };
+  }
+
+  renderVals() {
+    const s = this.state, e = this.errors(), show = s.tried;
+    const group = (list, key) => list.map((label) => ({
+      label, selected: s[key] === label,
+      style: this.optStyle(s[key] === label),
+      onSelect: () => this.setState({ [key]: label })
+    }));
+    const isEvent = s.path === 'Event Bar rental';
+    return {
+      submitted: s.submitted, notSubmitted: !s.submitted,
+      name: s.name, email: s.email, phone: s.phone,
+      eventDate: s.eventDate, guests: s.guests, notes: s.notes,
+      setName: this.set('name'), setEmail: this.set('email'), setPhone: this.set('phone'),
+      setEventDate: this.set('eventDate'), setGuests: this.set('guests'), setNotes: this.set('notes'),
+      pathOptions: group(PATHS, 'path'), sizeOptions: group(SIZES, 'size'),
+      errName: show ? e.name : '', errEmail: show ? e.email : '',
+      errPhone: show ? e.phone : '', errPath: show ? e.path : '', errEventDate: show ? e.eventDate : '',
+      showSize: ['Standard', 'Semi-Custom', 'Custom Elite'].includes(s.path),
+      showEvent: isEvent,
+      notesLabel: isEvent ? 'Tell us about the event' : 'Tell us about your space and business',
+      notesHint: isEvent ? 'Indoor or outdoor, power access, load-in details...' : 'Storefront, farmers market, event rentals...',
+      summary: s.path ? 'Selected: ' + s.path + (s.size ? ' \u00b7 ' + s.size : '') : '',
+      hasErrors: show && Object.keys(e).length > 0,
+      errorCount: Object.keys(e).length === 1 ? 'One field still needs attention.' : Object.keys(e).length + ' fields still need attention.',
+      sending: s.sending,
+      sendLabel: s.sending ? 'Sending...' : 'Send It Over',
+      sendFailed: s.sendFailed,
+      onSubmit: (ev) => {
+        ev.preventDefault();
+        if (Object.keys(this.errors()).length) { this.setState({ tried: true }); return; }
+        const s2 = this.state;
+        const payload = {
+          Interest: s2.path,
+          Name: s2.name.trim(),
+          Email: s2.email.trim(),
+          Phone: s2.phone.trim(),
+          'Cart size': s2.size,
+          'Event date': s2.eventDate,
+          Guests: s2.guests.trim(),
+          Notes: s2.notes.trim(),
+          _subject: 'New inquiry: ' + s2.path + ' — ' + s2.name.trim()
+        };
+        Object.keys(payload).forEach((k) => { if (!payload[k]) delete payload[k]; });
+        this.setState({ sending: true, sendFailed: false });
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then((r) => {
+            if (r.ok) this.setState({ sending: false, submitted: true });
+            else this.setState({ sending: false, sendFailed: true });
+          })
+          .catch(() => this.setState({ sending: false, sendFailed: true }));
+      }
     };
   }
 }
