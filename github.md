@@ -22,5 +22,5 @@ commit: e03691cd5851
 | About | About.dc.html |
 | Consultation | Consultation.dc.html |
 | Runtime + design system | support.js, image-slot.js, _ds/ |
-| Deploy config | site/CNAME, site/.nojekyll, robots.txt, sitemap.xml |
-| Generated build | site/ (regenerated from the .dc.html sources) |
+| Deploy config | docs/CNAME, docs/.nojekyll, robots.txt, sitemap.xml |
+| Generated build | docs/ (regenerated from the .dc.html sources; GitHub Pages publish folder) |

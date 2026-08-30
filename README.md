@@ -16,7 +16,7 @@ Static HTML. No build step.
 | `/about` | `About.dc.html` |
 | `/contact` | `Consultation.dc.html` |
 
-The deployable site is generated into `site/` as one `index.html` per route, giving clean URLs on any static host.
+The deployable site is generated into `docs/` as one `index.html` per route, giving clean URLs on any static host.
 
 ## Structure
 
@@ -32,15 +32,15 @@ The deployable site is generated into `site/` as one `index.html` per route, giv
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000/ from inside `site/`.
+Then open http://localhost:8000/ from inside `docs/`.
 
 ## Deployment
 
-GitHub Pages, served from the `site/` folder on `main`.
+GitHub Pages, served from the `docs/` folder on `main` (Pages only supports `/` or `/docs`).
 
-Repo Settings to Pages: source `main`, folder `/site`.
+Repo Settings to Pages: source `main`, folder `/docs`.
 
-`site/CNAME` holds the custom domain. `site/.nojekyll` stops Jekyll from touching the files. DNS is managed in AWS Route 53 and points at GitHub's Pages IPs.
+`docs/CNAME` holds the custom domain (45workshop.com). `docs/.nojekyll` stops Jekyll from touching the files. DNS is managed in AWS Route 53 and points at GitHub's Pages IPs.
 
 Pushes to `main` publish within a minute or two.
 
