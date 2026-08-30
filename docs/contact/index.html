@@ -39,13 +39,13 @@
   <a class="btn btn-primary" href="/contact/" style="justify-content:flex-start;white-space:nowrap;color:var(--color-bg);">Get started</a>
 </nav>
 
-<div style="max-width:1240px;margin:0 auto;padding:64px 32px 32px;">
+<div style="max-width:1240px;margin:0 auto;padding:64px clamp(20px,5vw,32px) 32px;">
   <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px;">Get Started</div>
   <h1 style="font-family:var(--font-heading);font-weight:700;font-size:52px;letter-spacing:-0.03em;max-width:18ch;margin:0 0 20px;">Tell us what you're <em>building.</em></h1>
   <p style="font-size:16px;color:var(--color-neutral-700);max-width:60ch;line-height:1.6;">One form for all four builds. Tell us which path you're on and we'll follow up with next steps, a quote, or a time to talk.</p>
 </div>
 
-<div style="max-width:1240px;margin:0 auto;padding:0 32px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--color-divider);">
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,32px) 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;background:var(--color-divider);">
   <div style="background:var(--color-surface);padding:26px 24px;">
     <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px;">Standard &amp; Semi-Custom</div>
     <div style="font-family:var(--font-heading);font-size:22px;margin-bottom:10px;">No fee</div>
@@ -63,17 +63,17 @@
   </div>
 </div>
 
-<div style="max-width:1240px;margin:0 auto;padding:40px 32px 88px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;">
+<div style="max-width:1240px;margin:0 auto;padding:40px clamp(20px,5vw,32px) 88px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;">
   <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
     <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;max-width:520px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;">
         <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Name</label><input class="f-input" type="text" placeholder="Jane Rivera" required=""></div>
         <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Phone</label><input class="f-input" type="tel" placeholder=""></div>
       </div>
       <div><label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Email</label><input class="f-input" type="email" placeholder="jane@yourbusiness.com" required=""></div>
       <div>
         <label style="font-size:12px;color:var(--color-neutral-700);display:block;margin-bottom:6px;">Which are you after?</label>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;">
           <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" checked="" style="margin-right:6px;">Standard</label>
           <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Semi-Custom</label>
           <label style="padding:11px 12px;border:2px solid var(--color-divider);font-size:13px;background:var(--color-surface);"><input type="radio" name="build-path" style="margin-right:6px;">Custom Elite</label>
@@ -108,7 +108,7 @@
 </div>
 
 <footer>
-  <div style="max-width:1240px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;border-top:2px solid var(--color-divider);">
+  <div style="max-width:1240px;margin:0 auto;padding:64px clamp(20px,5vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;border-top:2px solid var(--color-divider);">
     <div>
       <div style="font-family:var(--font-heading);font-weight:700;font-size:17px;margin-bottom:12px;">45° WORKSHOP</div>
       <p style="color:var(--color-neutral-700);max-width:340px;font-size:14px;line-height:1.6;margin:0;">Standard, semi-custom, and fully custom coffee carts and bars, with permit-process guidance and mobile bar rentals for events.</p>
@@ -123,7 +123,7 @@
       <p style="color:var(--color-neutral-700);font-size:14px;line-height:1.8;margin:0;">San Jose<br>Morgan Hill<br>Gilroy<br>Hollister</p>
     </div>
   </div>
-  <div style="max-width:1240px;margin:0 auto;padding:20px 32px;border-top:2px solid var(--color-divider);font-size:13px;color:var(--color-neutral-700);">© 2026 The Forty-Five Workshop</div>
+  <div style="max-width:1240px;margin:0 auto;padding:20px clamp(20px,5vw,32px);border-top:2px solid var(--color-divider);font-size:13px;color:var(--color-neutral-700);">© 2026 The Forty-Five Workshop</div>
 </footer>
 
 </div>
