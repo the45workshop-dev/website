@@ -16,7 +16,7 @@ Static HTML. No build step.
 | `/about` | `About.dc.html` |
 | `/contact` | `Consultation.dc.html` |
 
-Clean URLs are mapped in `_redirects`.
+The deployable site is generated into `site/` as one `index.html` per route, giving clean URLs on any static host.
 
 ## Structure
 
@@ -32,17 +32,17 @@ Clean URLs are mapped in `_redirects`.
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000/Home.dc.html
+Then open http://localhost:8000/ from inside `site/`.
 
 ## Deployment
 
-Cloudflare Pages, connected to this repository.
+GitHub Pages, served from the `site/` folder on `main`.
 
-- Framework preset: None
-- Build command: none
-- Output directory: `/`
+Repo Settings to Pages: source `main`, folder `/site`.
 
-Pushes to `main` deploy to production. Other branches get preview URLs.
+`site/CNAME` holds the custom domain. `site/.nojekyll` stops Jekyll from touching the files. DNS is managed in AWS Route 53 and points at GitHub's Pages IPs.
+
+Pushes to `main` publish within a minute or two.
 
 ## Workflow
 

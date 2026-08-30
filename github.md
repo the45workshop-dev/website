@@ -2,12 +2,14 @@ repo: the45workshop-dev/website
 branch: main
 
 ## Last sync
-date: 2026-08-28T00:00:00Z
+date: 2026-08-30T04:54:01Z
+commit: e03691cd5851
 
 ### Updated in this project
-- Connected the repo; it is currently empty, awaiting the first push from the local project folder.
-- Added Cloudflare Pages deploy files: `_redirects` (clean URLs), `robots.txt`, `sitemap.xml` (the45workshop.com).
-- Site pages carry per-page SEO titles, meta descriptions, Open Graph tags, and LocalBusiness structured data on Home.
+- Repo now holds the .dc.html sources and `img/`, but not yet the generated `site/` build.
+- Generated `site/` — a GitHub Pages build with one `index.html` per route for clean URLs, plus `CNAME` and `.nojekyll`.
+- Compressed all site photography into `img/` (JPEG, max 1800px, ~2 MB total); `uploads/` originals excluded from Git.
+- Added `README.md` and per-page SEO metadata with LocalBusiness structured data on Home.
 
 ## Screen map
 | Screen | Files |
@@ -20,4 +22,5 @@ date: 2026-08-28T00:00:00Z
 | About | About.dc.html |
 | Consultation | Consultation.dc.html |
 | Runtime + design system | support.js, image-slot.js, _ds/ |
-| Deploy config | _redirects, robots.txt, sitemap.xml |
+| Deploy config | site/CNAME, site/.nojekyll, robots.txt, sitemap.xml |
+| Generated build | site/ (regenerated from the .dc.html sources) |

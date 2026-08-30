@@ -4,6 +4,11 @@ Thumbs.db
 node_modules/
 .vscode/
 .idea/
+.image-slots.state.json
+.thumbnail
 
 # Source photos — optimized copies live in img/
 uploads/
+
+# Cloudflare-only config, unused on GitHub Pages
+_redirects
